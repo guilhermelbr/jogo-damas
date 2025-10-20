@@ -29,8 +29,8 @@ Para executar qualquer uma das versões do jogo, você precisará ter o Python i
 
 ## Versões do Projeto
 
-Eu organizei o projeto em pastas para mostrar a progressão:
-(cada nova versão na exclui oque tinha na anterior)
+Eu organizei o projeto em pastas para mostrar a progressão
+(cada nova versão na exclui oque tinha na anterior):
 
 ### 1. `1_jogo_base`
 Esta é a versão "neutra" e inicial do jogo. Contém:
