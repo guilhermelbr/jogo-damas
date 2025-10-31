@@ -36,7 +36,7 @@ IMG_COROA_BRANCA = None
 
 try:
     # Carrega a Coroa PRETA (apenas load, pygame deve gerenciar a transparência do PNG)
-    IMG_COROA_PRETA_ORIG = pygame.image.load('queen_black.png')
+    IMG_COROA_PRETA_ORIG = pygame.image.load('images/queen_black.png')
     IMG_COROA_PRETA = pygame.transform.scale(IMG_COROA_PRETA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
     print("AVISO: 'queen_black.png' (Coroa Preta) não encontrada. Dama preta será 'DP'.")
@@ -45,7 +45,7 @@ except pygame.error as e: # Adicionado para capturar outros erros de imagem
 
 try:
     # Carrega a Coroa BRANCA (apenas load, pygame deve gerenciar a transparência do PNG)
-    IMG_COROA_BRANCA_ORIG = pygame.image.load('queen_white.png')
+    IMG_COROA_BRANCA_ORIG = pygame.image.load('images/queen_white.png')
     IMG_COROA_BRANCA = pygame.transform.scale(IMG_COROA_BRANCA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
     print("AVISO: 'queen_white.png' (Coroa Branca) não encontrada. Dama branca será 'DB'.")
