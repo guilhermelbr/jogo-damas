@@ -1,16 +1,14 @@
 """
-caso de empata(40 jogadas sem captura)
-add def captura_obrigatoria
-modifica def joga
-"""
-
-"""
 Esse módulo provê funções para levar a efeito um jogo de damas.
 A interface deve usar essas funções para:
 - Operar sobre o tabuleiro
 - Operar sobre o turno dos jogadores
 - Garantir as condições iniciais do jogo
 - Verificar as condições de término do jogo
+
+add def captura_obrigatoria
+modifica def joga
+
 """
 
 from constantes import *
@@ -108,7 +106,7 @@ def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
       
     # Lógica para peças normais
     if peca_origem == PECA_BRANCA:
-        if dist_x != 2 and abs(dist_y) != 2:
+        if dist_x != 2 or abs(dist_y) != 2:
             return False
         meio_x = (origem_x + destino_x) // 2
         meio_y = (origem_y + destino_y) // 2
@@ -119,7 +117,7 @@ def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
         return (peca_meio == adversario or peca_meio == adversario_dama) and destino_vazio
     
     if peca_origem == PECA_PRETA:
-        if dist_x != -2 and abs(dist_y) != 2:
+        if dist_x != -2 or abs(dist_y) != 2:
             return False
         meio_x = (origem_x + destino_x) // 2
         meio_y = (origem_y + destino_y) // 2
@@ -159,6 +157,42 @@ def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
     return False
 
 
+
+
+def captura_obrigatoria(tab, turno):
+    """
+    Verifica se o jogador da vez tem alguma jogada de captura disponível no tabuleiro.
+    :param tab: O tabuleiro atual.
+    :param turno: O jogador da vez (PECA_BRANCA ou PECA_PRETA).
+    :return: True se houver pelo menos uma captura possível, False caso contrário.
+    """
+    for x in range(TAM_TAB):
+        for y in range(TAM_TAB):
+            peca = tab[x][y]
+            
+            # Checa se a peça na posição (x,y) pertence ao jogador atual
+            if (turno == PECA_BRANCA and (peca == PECA_BRANCA or peca == PECA_BRANCA_DAMA)) or \
+               (turno == PECA_PRETA and (peca == PECA_PRETA or peca == PECA_PRETA_DAMA)):
+                
+                # Para cada peça do jogador, verifica todas as 4 direções de captura
+                for dx in [-2, 2]: # representa sempre a distancia de captura, que sao duas casas na diagonal
+                    for dy in [-2, 2]:# representa sempre a distancia de captura, que sao duas casas na diagonal
+                        destino_x = x + dx
+                        destino_y = y + dy
+                        
+                        # Garante que a coordenada de destino está dentro do tabuleiro
+                        if 0 <= destino_x < TAM_TAB and 0 <= destino_y < TAM_TAB:
+                            
+                            # Usa a função jogada_captura() para verificar se a jogada é válida
+                            if jogada_captura(tab, turno, x, y, destino_x, destino_y):
+                                return True  # Se uma captura for encontrada, retorna True imediatamente
+
+    # Se o loop terminar sem encontrar nenhuma captura
+    return False
+
+
+
+
 def promove_peca(tab, destino_x, destino_y, peca):
     """
     Verifica se uma peça normal alcançou a última linha do tabuleiro e a promove a dama.
@@ -177,8 +211,9 @@ def promove_peca(tab, destino_x, destino_y, peca):
     return peca # Retorna a peça original se não houver promoção
 
 
+
 def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
-    """
+    """ 
     Realiza uma jogada completa do jogador da vez, validando e executando o movimento.
     :param tab: O tabuleiro atual.
     :param turno: O jogador da vez.
@@ -186,7 +221,7 @@ def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
     :param origem_y: A coluna da peça a ser movida.
     :param destino_x: A linha de destino da peça.
     :param destino_y: A coluna de destino da peça.
-    :return: Uma tupla (bool, bool) onde o primeiro valor indica se a jogada foi válida e o segundo se foi uma captura.
+    :return: True se a jogada foi feita com sucesso, False se a jogada for inválida.
     :raises ValueError: Se a jogada for para fora do tabuleiro, de uma casa vazia, não for a peça do jogador, ou para uma casa de destino ocupada.
     """
     if not (0 <= origem_x < TAM_TAB and 0 <= origem_y < TAM_TAB and
@@ -206,6 +241,7 @@ def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
     if tab[destino_x][destino_y] != CASA_VAZIA:
         raise ValueError("Casa de destino ocupada!")
 
+    # 1. Tenta validar a jogada do usuário como uma captura.
     if jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
         tab[destino_x][destino_y] = peca_origem
         tab[origem_x][origem_y] = CASA_VAZIA
@@ -223,8 +259,14 @@ def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
         nova_peca = promove_peca(tab, destino_x, destino_y, peca_origem)
         tab[destino_x][destino_y] = nova_peca
 
-        return True, True # Retorna True para jogada válida e True para captura
+        return True
 
+    # 2. Se a jogada não foi uma captura, verifica se havia uma captura obrigatória no tabuleiro.
+    if captura_obrigatoria(tab, turno):
+        # Se houver captura obrigatória e a jogada não foi uma, a jogada é inválida.
+        return False
+    
+    # 3. Se não houver captura obrigatória, tenta validar a jogada como um movimento simples.
     if jogada_simples(tab, origem_x, origem_y, destino_x, destino_y):
         tab[destino_x][destino_y] = peca_origem
         tab[origem_x][origem_y] = CASA_VAZIA
@@ -232,9 +274,10 @@ def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
         nova_peca = promove_peca(tab, destino_x, destino_y, peca_origem)
         tab[destino_x][destino_y] = nova_peca
 
-        return True, False # Retorna True para jogada válida e False para captura
+        return True
 
-    return False, False # Retorna False para jogada inválida e False para captura
+    # 4. Se nada acima for válido, a jogada é inválida.
+    return False
 
 
 def verifica_vitoria(tab, turno):
@@ -255,18 +298,14 @@ def verifica_vitoria(tab, turno):
     return True
 
 
-def acabou(tab, turno, lances_sem_captura):
+def acabou(tab, turno):
     """
-    Determina se o jogo chegou ao fim por vitória ou por empate.
+    Determina se o jogo chegou ao fim.
     :param tab: O tabuleiro atual.
     :param turno: O jogador da vez.
-    :param lances_sem_captura: O número de lances consecutivos sem capturas ou promoções.
-    :return: O valor do jogador que venceu (PECA_BRANCA ou PECA_PRETA), EMPATE, ou None se o jogo continua.
+    :return: O valor do jogador que venceu (PECA_BRANCA ou PECA_PRETA) se o jogo acabou, ou None se o jogo continua.
     """
     if verifica_vitoria(tab, turno):
         return turno
     
-    if lances_sem_captura >= 40:  # Regra de 40 lances sem captura/promoção para empate
-        return EMPATE
-        
     return None

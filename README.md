@@ -43,7 +43,7 @@ Esta é a versão "neutra" e inicial do jogo. Contém:
 Esta versão adiciona a regra de captura obrigatória, uma das principais mecânicas do jogo de Damas.
 * O jogador é forçado a realizar uma captura se ela estiver disponível.
 
-### 3. `3_final_com_empate`
+### 3. `3_com_empate`
 Esta é a versão final e mais completa, que adiciona a regra de empate.
 * A regra de captura obrigatória da Versão 2 está mantida.
 * O jogo é declarado "Empate" se ocorrerem 40 lances consecutivos sem captura.

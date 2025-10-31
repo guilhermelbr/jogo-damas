@@ -5,6 +5,7 @@ A interface deve usar essas funções para:
 - Operar sobre o turno dos jogadores
 - Garantir as condições iniciais do jogo
 - Verificar as condições de término do jogo
+
 """
 
 from constantes import *
@@ -102,7 +103,7 @@ def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
       
     # Lógica para peças normais
     if peca_origem == PECA_BRANCA:
-        if dist_x != 2 and abs(dist_y) != 2:
+        if dist_x != 2 or abs(dist_y) != 2:
             return False
         meio_x = (origem_x + destino_x) // 2
         meio_y = (origem_y + destino_y) // 2
@@ -113,7 +114,7 @@ def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
         return (peca_meio == adversario or peca_meio == adversario_dama) and destino_vazio
     
     if peca_origem == PECA_PRETA:
-        if dist_x != -2 and abs(dist_y) != 2:
+        if dist_x != -2 or abs(dist_y) != 2:
             return False
         meio_x = (origem_x + destino_x) // 2
         meio_y = (origem_y + destino_y) // 2
