@@ -75,11 +75,11 @@ This is the final version of the terminal logic, which adds the draw rule.
 
 | Versão GUI (Pygame) | Versão Terminal (Legado) |
 | :---: | :---: |
-| <img src="assets/gui_dama_screenshot.png" alt="GUI version with promoted Kings" width="250px" height="250px"/> | <img src="assets/terminal_dama_screenshot.png" alt="Terminal version with promoted Kings" width="250px" height="250px"/> |
+| <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" width="250px" height="250px"/> | <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" width="250px" height="250px"/> |
 
 ---
 
 ### Note on Repository Files
 
 * `requirements.txt`: Lists the Python packages (pygame, termcolor) required to run all projects.
-* `.gitignore`: A Git configuration file that instructs it to ignore local files and folders (like `.venv` and `__pycache__`), keeping the repository clean and functional for everyone who downloads it.
+* `.gitignore`: A Git configuration file that instructs it to ignore local files and folders (like `.venv` and `__pycache__`), keeping the repository clean and functional for everyone who downloads it.git add .
