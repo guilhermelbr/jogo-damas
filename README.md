@@ -58,7 +58,7 @@ This repository also contains the evolution of the game's logic. "<strong>Each (
 <p>
   <img src="assets/terminal_board.png" alt="Screenshot of the terminal version" width="350px"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/terminal_kings.png" alt="Screenshot of the terminal version with Kings" width="340px"/>
+  <img src="assets/terminal_kings.png" alt="Screenshot of the terminal version with Kings" width="342px"/>
 </p>
 
 ### 1. `(1.0)-game_base`
