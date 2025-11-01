@@ -191,7 +191,7 @@ def main():
         
         if peca_selecionada is not None:
             linha, col = peca_selecionada
-            pygame.draw.rect(tela, (0, 255, 0), (col * TAMANHO_QUADRADO, linha * TAMANHO_QUADRADO, TAMANHO_QUADRADO, TAMANHO_QUADRADO), 4)
+            pygame.draw.rect(tela, (139, 0, 0), (col * TAMANHO_QUADRADO, linha * TAMANHO_QUADRADO, TAMANHO_QUADRADO, TAMANHO_QUADRADO), 4)
        
         pygame.display.flip() 
         clock.tick(60)
