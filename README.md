@@ -1,73 +1,71 @@
-# PROJETO JOGO DE DAMAS (com GUI Pygame)
+# CHECKERS GAME PROJECT (with Pygame GUI)
 
-Este repositório contém a versão final de um jogo de Damas desenvolvido em Python, utilizando a biblioteca Pygame para criar uma interface gráfica do usuário (GUI) completa e interativa.
+This repository contains the final version of a Checkers game developed in Python, using the Pygame library to create a complete and interactive graphical user interface (GUI).
+The project also documents the development evolution, including the previous terminal-based versions, which can be found in the other (1.x) folders.
 
-O projeto também documenta a evolução do desenvolvimento, incluindo as versões anteriores baseadas em terminal, que podem ser encontradas nas outras pastas `(1.x)`.
+## Final Version (2.0) - Graphical Interface (GUI)
 
-## Versão Final (2.0) - Interface Gráfica (GUI)
+This is the main and most complete version of the project, located in the `(2.0)-final_version_GUI/` folder.
 
-Esta é a versão principal e mais completa do projeto, localizada na pasta `(2.0)-versao_final_GUI/`.
+### Features
 
-### Funcionalidades
-* **Interface Gráfica Completa:** O tabuleiro e as peças são renderizados em uma janela de aplicativo usando Pygame.
-* **Controles Intuitivos:** Movimentação de peças via clique do mouse (selecionando a origem e o destino).
-* **Lógica de Regras Completa:**
-    * Movimentação simples de peças e damas.
-    * **Captura Obrigatória:** O jogador é forçado a realizar uma captura se ela estiver disponível.
-    * **Promoção para Dama:** Peças normais são promovidas a Damas ao alcançar o lado oposto, recebendo um ícone de coroa personalizado (das imagens `queen_black.png` e `queen_white.png`).
-    * **Regra de Empate:** O jogo é declarado "Empate" se ocorrerem 40 lances consecutivos sem nenhuma captura.
+* **Full Graphical Interface:** The board and pieces are rendered in an application window using Pygame.
+* **Intuitive Controls:** Piece movement via mouse click (selecting the origin and destination).
+* **Complete Ruleset Logic:**
+    * Simple movement of pieces and kings.
+    * **mandatory Capture:** The player is forced to make a capture if one is available.
+    * **Promotion to King:** Regular pieces are promoted to Kings upon reaching the opposite side, receiving a custom crown icon (from the `queen_black.png` and `queen_white.png` images).
+    * **Draw Rule:** The game is declared a "Draw" if 40 consecutive moves occur without any capture.
 
-## Como Rodar o Jogo (Versão 2.0 GUI)
+## How to Run the Game (Version 2.0 GUI)
 
-1.  **Clone o repositório** para o seu computador.
-2.  **Crie um ambiente virtual** na pasta raiz do projeto:
+1.  **Clone the repository** to your computer.
+2.  **Create a virtual environment** in the project's root folder:
     ```bash
     python -m venv .venv
     ```
-3.  **Ative o ambiente virtual**:
-    * No Windows (PowerShell):
+3.  **Activate the virtual environment**:
+    * On Windows (PowerShell):
         ```powershell
         .\.venv\Scripts\Activate.ps1
         ```
-    * No macOS/Linux:
+    * On macOS/Linux:
         ```bash
         source .venv/bin/activate
         ```
-4.  **Instale as dependências** (pacotes) necessárias:
+4.  **Install the required dependencies** (packages):
     ```bash
     pip install -r requirements.txt
     ```
-5.  **Navegue para a pasta da GUI e execute:**
-    ```powershell
+5.  **Navigate to the GUI folder and run:**
+    ```bash
     cd "(2.0)-final_version_GUI"
     python main_gui.py
     ```
 
----
-## Evolução do Projeto (Versões Anteriores de Terminal)
+## Project Evolution (Previous Terminal-based Versions)
 
-Este repositório também contém a evolução da lógica do jogo. **Cada pasta `(1.x)` representa um "mini-projeto" independente e executável (via terminal)**, mostrando a progressão das regras:
+This repository also contains the evolution of the game's logic. **Each (1.x) folder represents an independent and executable "mini-project" (via terminal)**, showing the progression of the rules:
 
 ### 1. `(1.0)-game_base`
-Esta é a versão "neutra" e inicial do jogo. Contém:
-* Movimentação simples de peças e damas.
-* Captura simples (mas não obrigatória).
-* Promoção de peças quando atravessam o tabuleiro.
-* Verificação de vitória por eliminação de peças.
+This is the "neutral" and initial version of the game. It contains:
+* Simple movement of pieces and kings.
+* Simple capture (but not mandatory).
+* Promotion of pieces when they cross the board.
+* Victory check by eliminating all opponent pieces.
 
 ### 2. `(1.2)-mandatory_capture`
-Esta versão adiciona a regra de captura obrigatória, uma das principais mecânicas do jogo de Damas.
-* O jogador é forçado a realizar uma captura se ela estiver disponível.
+This version adds the mandatory capture rule, one of the main mechanics of Checkers.
+* The player is forced to make a capture if one is available.
 
 ### 3. `(1.3)-capture+draw`
-Esta é a versão final da lógica de terminal, que adiciona a regra de empate.
-* A regra de captura obrigatória da Versão 2 está mantida.
-* O jogo é declarado "Empate" se ocorrerem 40 lances consecutivos sem captura.
+This is the final version of the terminal logic, which adds the draw rule.
+* The mandatory capture rule from Version 2 is maintained.
+* The game is declared a "Draw" if 40 consecutive moves occur without any capture.
 
-**Para rodar estas versões de terminal:** Após o Passo 4 (instalar dependências), navegue para a pasta desejada (ex: `cd "(1.3)-capture+draw"`) e execute `python ui.py`.
+**To run these terminal versions:** After Step 4 (installing dependencies), navigate to the desired folder (e.g., `cd "(1.3)-capture+draw"`) and run `python ui.py`.
 
----
-### Nota sobre os Arquivos do Repositório
+### Note on Repository Files
 
-* **`requirements.txt`**: Lista os pacotes Python (`pygame`, `termcolor`) necessários para rodar todos os projetos.
-* **`.gitignore`**: Um arquivo de configuração do Git que o instrui a ignorar arquivos e pastas locais (como `.venv` e `__pycache__`), mantendo o repositório limpo e funcional para todos que o baixarem.
+* `requirements.txt`: Lists the Python packages (pygame, termcolor) required to run all projects.
+* `.gitignore`: A Git configuration file that instructs it to ignore local files and folders (like `.venv` and `__pycache__`), keeping the repository clean and functional for everyone who downloads it.
