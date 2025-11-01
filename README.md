@@ -81,7 +81,7 @@ This is the final version of the terminal logic, which adds the draw rule.
 
 ---
 ### Note on language
-* All the code logic was written in "<strong>Portuguese(BR)</strong>". 
+* All the code logic was written in <strong>Portuguese(BR)</strong>. 
 * However, <strong>all the code includes comments in English explaining and instructing what each part does</strong>.
 ---
 ### Note on Repository Files
