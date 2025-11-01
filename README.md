@@ -1,6 +1,6 @@
 # CHECKERS GAME PROJECT (with Pygame GUI)
 
-<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="250px" align="left"/>
+<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="250px"/>
 
 This repository contains the final version of a Checkers game developed in Python, using the Pygame library to create a complete and interactive graphical user interface (GUI).
 The project also documents the development evolution, including the previous terminal-based versions, which can be found in the other (1.x) folders.
@@ -50,7 +50,7 @@ This is the main and most complete version of the project, located in the `(2.0)
 ## Project Evolution (Previous Terminal-based Versions)
 
 <p align="center">
-  <img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" width="250px"/>
+  <img src="assets/terminal_bo.png" alt="Screenshot of the original terminal version" width="250px"/>
 </p>
 
 This repository also contains the evolution of the game's logic. **Each (1.x) folder represents an independent and executable "mini-project" (via terminal)**, showing the progression of the rules:
@@ -76,9 +76,9 @@ This is the final version of the terminal logic, which adds the draw rule.
 ### Special Views: Kings
 
 <p align="center">
-  <img src="assets/GUI_king.png" alt="GUI version with promoted Kings" width="250px"/>
+  <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" width="250px" height="250px"/>
   &nbsp;&nbsp;
-  <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" width="250px"/>
+  <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" width="250px" height="250px"/>
 </p>
 
 ---
