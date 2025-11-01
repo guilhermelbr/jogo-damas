@@ -3,7 +3,11 @@
 This repository contains the final version of a Checkers game developed in Python, using the Pygame library to create a complete and interactive graphical user interface (GUI).
 The project also documents the development evolution, including the previous terminal-based versions, which can be found in the other (1.x) folders.
 
-<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+<p align="center">
+  <img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/GUI_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
+</p>
 
 ## Final Version (2.0) - Graphical Interface (GUI)
 
@@ -28,13 +32,13 @@ This is the main and most complete version of the project, located in the `(2.0)
     ```
 3.  **Activate the virtual environment**:
     * On Windows (PowerShell):
-        ```powershell
-        .\.venv\Scripts\Activate.ps1
-        ```
+    ```powershell
+    .\.venv\Scripts\Activate.ps1
+    ```
     * On macOS/Linux:
-        ```bash
-        source .venv/bin/activate
-        ```
+    ```bash
+    source .venv/bin/activate
+    ```
 4.  **Install the required dependencies** (packages):
     ```bash
     pip install -r requirements.txt
@@ -51,7 +55,11 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 This repository also contains the evolution of the game's logic. "<strong>Each (1.x) folder represents an independent and executable mini-project (via terminal)</strong>", showing the progression of the rules:
 
-<img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="400px"/>
+<p align="center">
+  <img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/terminal_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
+</p>
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
@@ -70,12 +78,6 @@ This is the final version of the terminal logic, which adds the draw rule.
 * The game is declared a "Draw" if 40 consecutive moves occur without any capture.
 
 **To run these terminal versions:** After Step 4 (installing dependencies), navigate to the desired folder (e.g., `cd "(1.3)-capture+draw"`) and run `python ui.py`.
-
-### Special Views: Kings
-
-| GUI version (Pygame) | legacy versions (terminal) |
-| :---: | :---: |
-| <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="200px"/> | <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="250px"/> |
 
 ---
 
