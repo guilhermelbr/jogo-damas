@@ -51,7 +51,7 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 | | |
 |:---|:---|
-| <img src="assets/terminal_screenshot.png" alt="Screenshot of the original terminal version" width="250px"/> | This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules: |
+| <img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" width="250px"/> | This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules: |
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
