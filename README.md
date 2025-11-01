@@ -49,16 +49,9 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 ## Project Evolution (Previous Terminal-based Versions)
 
-<table border="0" cellpadding="0" cellspacing="0" style="border: none; background: none;">
-  <tr>
-    <td style="padding-right: 20px; border: none; background: none; vertical-align: top;">
-      <img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" height="300px"/>
-    </td>
-    <td style="border: none; background: none; vertical-align: top;">
-        This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules:
-    </td>
-  </tr>
-</table>
+| | |
+|:---|:---|
+| <img src="assets/terminal_screenshot.png" alt="Screenshot of the original terminal version" width="250px"/> | This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules: |
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
