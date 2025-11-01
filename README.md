@@ -49,9 +49,11 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 ## Project Evolution (Previous Terminal-based Versions)
 
-| | |
-|:---|:---|
-| <img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" width="250px"/> | This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules: |
+<img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" height="250px" align="left" style="margin-right: 20px;"/>
+
+This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules:
+
+<br style="clear: both;" />
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
@@ -73,9 +75,9 @@ This is the final version of the terminal logic, which adds the draw rule.
 
 ### Special Views: Kings
 
-| legacy versions (terminal) | GUI version (Pygame) | 
+| GUI version (Pygame) | legacy versions (terminal) |
 | :---: | :---: |
-| <img src="assets/terminal_kings.png" alt="GUI version with promoted Kings" height="250px"/> | <img src="assets/GUI_kings.png" alt="Terminal version with promoted Kings" height="250px"/> |
+| <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="250px"/> | <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="250px"/> |
 
 ---
 
