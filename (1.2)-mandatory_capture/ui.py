@@ -59,13 +59,13 @@ def recebe_jogada(t, tab):
     """
     while True:
         print()
-        print(colored(f"Jogador {t}, é a sua vez!", "green"))
-        print("Digite a jogada no formato COCD, onde CO é a coordenada de origem e CD a de destino:")
-        print("Exemplo: '3243' moveria a peça de (3,2) para (4,3).")
+        print(colored(f"player {t}, its your turn!", "green"))
+        print("Enter your move in the format SCDC, where SC is the starting coordinate and DC is the destination coordinate:")
+        print("Example: '3243' would move the piece from (3,2) to (4,3).")
         jogada = input()
         if jogada_formato_valido(jogada):
             break
-        print(colored("Jogada fora do formato correto (ex: 3243)!", "red"))
+        print(colored("Input entered in the wrong format (ex: 3243)!", "red"))
         imprime_tabuleiro(tab)
     
     #-1 para converter a jogada de 1-8 para 0-7
@@ -106,16 +106,16 @@ def main():
                 else:
                     turno = troca_turno(turno)
             else:
-                print(colored("Jogada inválida! Tente novamente.", "red"))
+                print(colored("Invalid move. Please try again.", "red"))
 
         except ValueError as erro:
             print(colored(f"Erro: {erro}", "red"))
 
     imprime_tabuleiro(tabuleiro)
     if resultado == EMPATE:
-        print(colored("O jogo empatou!", "blue"))
+        print(colored("The game ended in a tie!", "blue"))
     else:
-        print(colored(f"Jogador {resultado} ganhou!", "blue"))
+        print(colored(f"Player {resultado} won!", "blue"))
 
 if __name__ == "__main__":
     main()

@@ -36,21 +36,21 @@ IMG_COROA_BRANCA = None
 
 try:
     # Carrega a Coroa PRETA (apenas load, pygame deve gerenciar a transparência do PNG)
-    IMG_COROA_PRETA_ORIG = pygame.image.load('images/king_black.png')
+    IMG_COROA_PRETA_ORIG = pygame.image.load('kings/king_black.png')
     IMG_COROA_PRETA = pygame.transform.scale(IMG_COROA_PRETA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
-    print("AVISO: 'king_black.png' (Coroa Preta) não encontrada. Dama preta será 'DP'.")
+    print("WARNING: 'king_black.png' (Black Crown) not found. Black king will be 'BK'.")
 except pygame.error as e: # Adicionado para capturar outros erros de imagem
-    print(f"ERRO ao carregar 'king_black.png': {e}. Dama preta será 'DP'.")
+    print(f"ERROR loading 'king_black.png': {e}. Black King will be 'BK'.")
 
 try:
     # Carrega a Coroa BRANCA (apenas load, pygame deve gerenciar a transparência do PNG)
-    IMG_COROA_BRANCA_ORIG = pygame.image.load('images/king_white.png')
+    IMG_COROA_BRANCA_ORIG = pygame.image.load('kings/king_white.png')
     IMG_COROA_BRANCA = pygame.transform.scale(IMG_COROA_BRANCA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
-    print("AVISO: 'king_white.png' (Coroa Branca) não encontrada. Dama branca será 'DB'.")
+    print("WARNING: 'king_white.png' (white Crown) not found. white king will be 'WK'.")
 except pygame.error as e: # Adicionado para capturar outros erros de imagem
-    print(f"ERRO ao carregar 'king_white.png': {e}. Dama branca será 'DB'.")
+    print(f"ERROR loading 'king_white.png': {e}. White King will be 'WK'.")
 
 
 # --- Funções de Desenho ---
@@ -100,7 +100,7 @@ def desenha_pecas(tab):
                     pygame.draw.circle(tela, COR_BORDA, (centro_x, centro_y), raio + 2)
                     pygame.draw.circle(tela, COR_BRANCA_PECA, (centro_x, centro_y), raio)
                     fonte_dama = pygame.font.SysFont('Arial', 24, bold=True)
-                    texto_surf = fonte_dama.render('DB', True, COR_PRETA_PECA)
+                    texto_surf = fonte_dama.render('WK', True, COR_PRETA_PECA)
                     texto_rect = texto_surf.get_rect(center=(centro_x, centro_y))
                     tela.blit(texto_surf, texto_rect)
             
@@ -114,7 +114,7 @@ def desenha_pecas(tab):
                     pygame.draw.circle(tela, COR_BORDA, (centro_x, centro_y), raio + 2)
                     pygame.draw.circle(tela, COR_PRETA_PECA, (centro_x, centro_y), raio)
                     fonte_dama = pygame.font.SysFont('Arial', 24, bold=True)
-                    texto_surf = fonte_dama.render('DP', True, COR_BRANCA_PECA)
+                    texto_surf = fonte_dama.render('bk', True, COR_BRANCA_PECA)
                     texto_rect = texto_surf.get_rect(center=(centro_x, centro_y))
                     tela.blit(texto_surf, texto_rect)
             
@@ -171,14 +171,14 @@ def main():
                         
                         peca_selecionada = (linha_clicada, col_clicada)
                         origem_x, origem_y = linha_clicada, col_clicada
-                        print(f"Peça selecionada: ({origem_x + 1}, {origem_y + 1})")
+                        print(f"Checker selected: ({origem_x + 1}, {origem_y + 1})")
                     else:
-                        print("Casa vazia ou peça do adversário. Selecione sua peça.")
+                        print("Empty square or opponent's piece. Select your piece.")
                 
                 else:
                     # É O SEGUNDO CLIQUE (SELEÇÃO DE DESTINO)
                     destino_x, destino_y = linha_clicada, col_clicada
-                    print(f"Destino selecionado: ({destino_x + 1}, {destino_y + 1})")
+                    print(f"Selected destination: ({destino_x + 1}, {destino_y + 1})")
 
                     try:
                         # Tenta realizar a jogada usando o seu motor de regras!
@@ -197,7 +197,7 @@ def main():
                             # Verifica se o jogo acabou
                             resultado = acabou(tabuleiro, turno, lances_sem_captura)
                             if resultado is not None:
-                                print(f"FIM DE JOGO! Vencedor: {resultado}")
+                                print(f"END GAME! Winner: {resultado}")
                                 # (Aqui você pode desenhar o vencedor na tela)
                                 rodando = False # Por enquanto, só fecha o jogo
                             
@@ -205,11 +205,11 @@ def main():
                             turno = troca_turno(turno)
                             
                         else:
-                            print("Jogada inválida. Tente novamente.")
+                            print("Invalid move. Please try again.")
                     
                     except ValueError as erro:
                         # Isso pega os erros que sua função joga() levanta
-                        print(f"Erro: {erro}. Tente novamente.")
+                        print(f"Erro: {erro}. Please try again.")
                     
                     # Limpa a seleção para a próxima jogada
                     peca_selecionada = None
