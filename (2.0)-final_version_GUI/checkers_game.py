@@ -8,7 +8,7 @@ A interface deve usar essas funções para:
 
 """
 
-from constantes import *
+from constants import *
 
 def constroi_tabuleiro():
     """

@@ -1,5 +1,5 @@
-from jogo_damas import *
-from constantes import *
+from checkers_game import *
+from constants import *
 import pygame
 
 # --- Configurações Iniciais ---
@@ -36,21 +36,21 @@ IMG_COROA_BRANCA = None
 
 try:
     # Carrega a Coroa PRETA (apenas load, pygame deve gerenciar a transparência do PNG)
-    IMG_COROA_PRETA_ORIG = pygame.image.load('images/queen_black.png')
+    IMG_COROA_PRETA_ORIG = pygame.image.load('images/king_black.png')
     IMG_COROA_PRETA = pygame.transform.scale(IMG_COROA_PRETA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
-    print("AVISO: 'queen_black.png' (Coroa Preta) não encontrada. Dama preta será 'DP'.")
+    print("AVISO: 'king_black.png' (Coroa Preta) não encontrada. Dama preta será 'DP'.")
 except pygame.error as e: # Adicionado para capturar outros erros de imagem
-    print(f"ERRO ao carregar 'queen_black.png': {e}. Dama preta será 'DP'.")
+    print(f"ERRO ao carregar 'king_black.png': {e}. Dama preta será 'DP'.")
 
 try:
     # Carrega a Coroa BRANCA (apenas load, pygame deve gerenciar a transparência do PNG)
-    IMG_COROA_BRANCA_ORIG = pygame.image.load('images/queen_white.png')
+    IMG_COROA_BRANCA_ORIG = pygame.image.load('images/king_white.png')
     IMG_COROA_BRANCA = pygame.transform.scale(IMG_COROA_BRANCA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
-    print("AVISO: 'queen_white.png' (Coroa Branca) não encontrada. Dama branca será 'DB'.")
+    print("AVISO: 'king_white.png' (Coroa Branca) não encontrada. Dama branca será 'DB'.")
 except pygame.error as e: # Adicionado para capturar outros erros de imagem
-    print(f"ERRO ao carregar 'queen_white.png': {e}. Dama branca será 'DB'.")
+    print(f"ERRO ao carregar 'king_white.png': {e}. Dama branca será 'DB'.")
 
 
 # --- Funções de Desenho ---

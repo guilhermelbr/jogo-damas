@@ -1,8 +1,8 @@
 """
 Módulo que faz a interface com o usuário
 """
-from jogo_damas import *
-from constantes import *
+from checkers_game import *
+from constants import *
 from termcolor import colored
 
 def imprime_tabuleiro(tab):

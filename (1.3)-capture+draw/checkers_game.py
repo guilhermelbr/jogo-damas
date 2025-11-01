@@ -11,7 +11,7 @@ modifica def joga
 
 """
 
-from constantes import *
+from constants import *
 
 def constroi_tabuleiro():
     """
