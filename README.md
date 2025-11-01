@@ -75,7 +75,7 @@ This is the final version of the terminal logic, which adds the draw rule.
 
 | Versão GUI (Pygame) | Versão Terminal (Legado) |
 | :---: | :---: |
-| <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="200px"/> | <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="200px"/> |
+| <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="200px"/> | <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="250px"/> |
 
 ---
 
