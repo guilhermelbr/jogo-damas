@@ -3,11 +3,9 @@
 This repository contains the final version of a Checkers game developed in Python, using the Pygame library to create a complete and interactive graphical user interface (GUI).
 The project also documents the development evolution, including the previous terminal-based versions, which can be found in the other (1.x) folders.
 
-<p align="center">
-  <img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/GUI_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
-</p>
+<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="assets/GUI_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
 
 ## Final Version (2.0) - Graphical Interface (GUI)
 
@@ -55,11 +53,9 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 This repository also contains the evolution of the game's logic. "<strong>Each (1.x) folder represents an independent and executable mini-project (via terminal)</strong>", showing the progression of the rules:
 
-<p align="center">
-  <img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/terminal_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
-</p>
+<img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="assets/terminal_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
