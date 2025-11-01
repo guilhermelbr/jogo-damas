@@ -49,9 +49,7 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 ## Project Evolution (Previous Terminal-based Versions)
 
-<p align="center">
-  <img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" width="250px"/>
-</p>
+<img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="250px"/>
 
 This repository also contains the evolution of the game's logic. **Each (1.x) folder represents an independent and executable "mini-project" (via terminal)**, showing the progression of the rules:
 
@@ -75,16 +73,9 @@ This is the final version of the terminal logic, which adds the draw rule.
 
 ### Special Views: Kings
 
-<table align="center" border="0" cellpadding="0" cellspacing="0" style="border: none; background: none;">
-  <tr>
-    <td align="center" style="padding: 10px; border: none; background: none;">
-      <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="250px"/>
-    </td>
-    <td align="center" style="padding: 10px; border: none; background: none;">
-      <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="250px"/>
-    </td>
-  </tr>
-</table>
+| Versão GUI (Pygame) | Versão Terminal (Legado) |
+| :---: | :---: |
+| <img src="assets/gui_dama_screenshot.png" alt="GUI version with promoted Kings" height="250px"/> | <img src="assets/terminal_dama_screenshot.png" alt="Terminal version with promoted Kings" height="250px"/> |
 
 ---
 
