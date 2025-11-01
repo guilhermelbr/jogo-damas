@@ -1,9 +1,11 @@
 # CHECKERS GAME PROJECT (with Pygame GUI)
 
-<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="250px"/>
-
 This repository contains the final version of a Checkers game developed in Python, using the Pygame library to create a complete and interactive graphical user interface (GUI).
 The project also documents the development evolution, including the previous terminal-based versions, which can be found in the other (1.x) folders.
+
+<p align="center">
+<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+</p>
 
 ## Final Version (2.0) - Graphical Interface (GUI)
 
