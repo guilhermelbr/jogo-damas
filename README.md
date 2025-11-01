@@ -1,4 +1,4 @@
-# PROJETO JOGO DE DAMAS (com Interface Gráfica Pygame)
+# PROJETO JOGO DE DAMAS (com GUI Pygame)
 
 Este repositório contém a versão final de um jogo de Damas desenvolvido em Python, utilizando a biblioteca Pygame para criar uma interface gráfica do usuário (GUI) completa e interativa.
 
