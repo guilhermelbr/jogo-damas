@@ -49,13 +49,12 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 ## Project Evolution (Previous Terminal-based Versions)
 
-<img src="assets/terminal_board.png" alt="Screenshot of the original terminal version" height="250px" align="left" style="margin-right: 20px;"/>
+<img src="assets/terminal_screenshot.png" alt="Screenshot of the original terminal version" height="200px" align="left" style="margin-right: 20px;"/>
 
-This repository also contains the evolution of the game's logic. "<strong>Each (1.x) folder represents an independent and executable mini-project (via terminal)</strong>", showing the progression of the rules:
+This repository also contains the evolution of the game's logic. Each (1.x) folder represents an independent and executable "<strong>mini-project</strong>" (via terminal), showing the progression of the rules:
 
-<div style="clear: both;"></div>
+<h3 style="clear: both;">1. (1.0)-game_base</h3>
 
-### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
 * Simple movement of pieces and kings.
 * Simple capture (but not mandatory).
