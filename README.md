@@ -51,7 +51,7 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 This repository also contains the evolution of the game's logic. "<strong>Each (1.x) folder represents an independent and executable mini-project (via terminal)</strong>", showing the progression of the rules:
 
-<img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="350px"/>
+<img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="500px"/>
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
