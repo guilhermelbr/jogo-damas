@@ -1,17 +1,20 @@
+"""
+Module that provides the user interface.
+"""
 from checkers_game import *
 from constants import *
 import pygame
 
-# --- Configurações Iniciais ---
+# --- Initial Settings ---
 pygame.init()
 
-# Tamanho em pixels
+# Size in pixels
 TAMANHO_QUADRADO = 80 
 LARGURA = TAM_TAB * TAMANHO_QUADRADO
 ALTURA = TAM_TAB * TAMANHO_QUADRADO
 TAMANHO_TELA = (LARGURA, ALTURA)
 
-# Cores (em RGB)
+# Colors (in RGB)
 COR_BEGE = (237, 232, 208)
 COR_PRETA = (0, 0, 0)
 COR_MARROM = (101, 67, 33)
@@ -22,60 +25,59 @@ COR_BORDA = (101, 67, 33)
 
 
 tela = pygame.display.set_mode(TAMANHO_TELA)
-pygame.display.set_caption("Jogo de Damas")
+pygame.display.set_caption("Checkers Game")
 
-# --- Carregar Imagens ---
+# --- Upload Images ---
 
-# Define o tamanho que a coroa terá na tela
+# Defines the size the crown will have on the screen
 RAIO_PECA = (TAMANHO_QUADRADO // 2) - 10  # 30 pixels
 TAMANHO_COROA = int(RAIO_PECA * 1.5)     # 45 pixels
 
-# Inicializa as imagens como None
+# Initialize the images as None
 IMG_COROA_PRETA = None
 IMG_COROA_BRANCA = None
 
 try:
-    # Carrega a Coroa PRETA (apenas load, pygame deve gerenciar a transparência do PNG)
+    # Loads the BLACK crown (load only, pygame should handle the PNG transparency)
     IMG_COROA_PRETA_ORIG = pygame.image.load('kings/king_black.png')
     IMG_COROA_PRETA = pygame.transform.scale(IMG_COROA_PRETA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
     print("WARNING: 'king_black.png' (Black Crown) not found. Black king will be 'BK'.")
-except pygame.error as e: # Adicionado para capturar outros erros de imagem
+except pygame.error as e: # Added to capture other image errors
     print(f"ERROR loading 'king_black.png': {e}. Black King will be 'BK'.")
 
 try:
-    # Carrega a Coroa BRANCA (apenas load, pygame deve gerenciar a transparência do PNG)
+    # Loads the WHITE crown (load only, pygame should handle the PNG transparency)
     IMG_COROA_BRANCA_ORIG = pygame.image.load('kings/king_white.png')
     IMG_COROA_BRANCA = pygame.transform.scale(IMG_COROA_BRANCA_ORIG, (TAMANHO_COROA, TAMANHO_COROA))
 except FileNotFoundError:
     print("WARNING: 'king_white.png' (white Crown) not found. white king will be 'WK'.")
-except pygame.error as e: # Adicionado para capturar outros erros de imagem
+except pygame.error as e: # Added to capture other image errors
     print(f"ERROR loading 'king_white.png': {e}. White King will be 'WK'.")
 
 
-# --- Funções de Desenho ---
+# --- Drawing Functions ---
 
 def desenha_tabuleiro(tab):
-    """Desenha as casas do tabuleiro na tela."""
-    tela.fill(COR_BEGE) # Pinta o fundo
+    """Draw the houses of the game board on the screen."""
+    tela.fill(COR_BEGE) # Paint the background
     for linha in range(TAM_TAB):
         for col in range(TAM_TAB):
-            # (linha + col) % 2 == 1 significa que é uma casa "jogável" (escura)
+            # (row + column) % 2 == 1 means it's a "playable" (dark) square
             if (linha + col) % 2 == 1:
                 cor = COR_MARROM
             else:
                 cor = COR_BEGE
 
-            # Desenha o quadrado
-            # (col * TAMANHO_QUADRADO, linha * TAMANHO_QUADRADO) -> Posição (x, y) do canto
-            # (TAMANHO_QUADRADO, TAMANHO_QUADRADO) -> Largura e Altura
+            # Draws the square
+            # (with * SQUARE_SIZE, line * SQUARE_SIZE) -> Position (x, y) of the corner
+            # (SQUARE_SIZE, SQUARE_SIZE) -> Width and Height
             pygame.draw.rect(tela, cor, (col * TAMANHO_QUADRADO, linha * TAMANHO_QUADRADO, TAMANHO_QUADRADO, TAMANHO_QUADRADO))
-            #linha de cima é do gemini
 
 def desenha_pecas(tab):
-    """Varre o tabuleiro e desenha as peças (círculos) na tela."""
+    """Clear the board and draw the pieces (circles) on the screen."""
     
-    raio = (TAMANHO_QUADRADO // 2) - 10 # Deixa uma margem de 10 pixels
+    raio = (TAMANHO_QUADRADO // 2) - 10 # Leave a margin of 10 pixels
     
     for linha in range(TAM_TAB):
         for col in range(TAM_TAB):
@@ -87,16 +89,11 @@ def desenha_pecas(tab):
             centro_x = col * TAMANHO_QUADRADO + (TAMANHO_QUADRADO // 2)
             centro_y = linha * TAMANHO_QUADRADO + (TAMANHO_QUADRADO // 2)
             
-            
-            # --- LÓGICA DE DESENHO CORRIGIDA ---
-            
             if peca == PECA_BRANCA_DAMA:
                 if IMG_COROA_BRANCA: 
-                    # É DAMA BRANCA: Desenha SÓ a imagem da Dama Branca
                     img_rect = IMG_COROA_BRANCA.get_rect(center=(centro_x, centro_y))
                     tela.blit(IMG_COROA_BRANCA, img_rect)
                 else:
-                    # Fallback (Plano B se 'queen_white.png' não for encontrada)
                     pygame.draw.circle(tela, COR_BORDA, (centro_x, centro_y), raio + 2)
                     pygame.draw.circle(tela, COR_BRANCA_PECA, (centro_x, centro_y), raio)
                     fonte_dama = pygame.font.SysFont('Arial', 24, bold=True)
@@ -106,11 +103,9 @@ def desenha_pecas(tab):
             
             elif peca == PECA_PRETA_DAMA:
                 if IMG_COROA_PRETA: 
-                    # É DAMA PRETA: Desenha SÓ a imagem da Dama Preta
                     img_rect = IMG_COROA_PRETA.get_rect(center=(centro_x, centro_y))
                     tela.blit(IMG_COROA_PRETA, img_rect)
                 else:
-                    # Fallback (Plano B se 'queen_black.png' não for encontrada)
                     pygame.draw.circle(tela, COR_BORDA, (centro_x, centro_y), raio + 2)
                     pygame.draw.circle(tela, COR_PRETA_PECA, (centro_x, centro_y), raio)
                     fonte_dama = pygame.font.SysFont('Arial', 24, bold=True)
@@ -119,14 +114,11 @@ def desenha_pecas(tab):
                     tela.blit(texto_surf, texto_rect)
             
             else:
-                # É UMA PEÇA NORMAL (NÃO-DAMA)
-                # Define a cor do círculo da peça
                 if peca == PECA_BRANCA:
                     cor_peca = COR_BRANCA_PECA
-                else: # peca == PECA_PRETA
+                else: 
                     cor_peca = COR_PRETA_PECA
                 
-                # Desenha o círculo normal
                 pygame.draw.circle(tela, COR_BORDA, (centro_x, centro_y), raio + 2)
                 pygame.draw.circle(tela, cor_peca, (centro_x, centro_y), raio)
 
@@ -135,37 +127,26 @@ def main():
     tabuleiro = constroi_tabuleiro()
     turno = inicia_turno()
     
-    # --- variáveis para controlar os cliques ---
-    peca_selecionada = None  # Guarda a tupla (linha, col) da peça de origem
+    peca_selecionada = None
     origem_x, origem_y = -1, -1
     
-    # --- Variáveis para o loop ---
     rodando = True
     clock = pygame.time.Clock()
-    lances_sem_captura = 0 # Para a regra de empate
+    lances_sem_captura = 0 
 
     while rodando:
-        # --- 1. Checar Eventos do Usuário ---
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 rodando = False
             
-            # Detecta o clique do mouse
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # Pega a posição (x, y) do clique em pixels
                 x_mouse, y_mouse = pygame.mouse.get_pos()
-                
-                # Converte o clique (pixels) para (linha, coluna) do tabuleiro
                 linha_clicada = y_mouse // TAMANHO_QUADRADO
                 col_clicada = x_mouse // TAMANHO_QUADRADO
                 
-                # --- LÓGICA DA JOGADA ---
                 
                 if peca_selecionada is None:
-                    # É O PRIMEIRO CLIQUE (SELEÇÃO DE ORIGEM)
                     peca = tabuleiro[linha_clicada][col_clicada]
-                    
-                    # Verifica se o jogador clicou em uma peça válida (dele mesmo)
                     if (turno == PECA_BRANCA and (peca == PECA_BRANCA or peca == PECA_BRANCA_DAMA)) or \
                        (turno == PECA_PRETA and (peca == PECA_PRETA or peca == PECA_PRETA_DAMA)):
                         
@@ -176,57 +157,42 @@ def main():
                         print("Empty square or opponent's piece. Select your piece.")
                 
                 else:
-                    # É O SEGUNDO CLIQUE (SELEÇÃO DE DESTINO)
                     destino_x, destino_y = linha_clicada, col_clicada
                     print(f"Selected destination: ({destino_x + 1}, {destino_y + 1})")
 
                     try:
-                        # Tenta realizar a jogada usando o seu motor de regras!
-                        # (Vamos usar a versão 3 do 'joga', que retorna duas coisas)
                         jogada_valida, foi_captura = joga(tabuleiro, turno, origem_x, origem_y, destino_x, destino_y)
                         
                         if jogada_valida:
-                            # --- A JOGADA FOI VÁLIDA ---
-                            
-                            # Atualiza contador de empate
                             if foi_captura:
                                 lances_sem_captura = 0
                             else:
                                 lances_sem_captura += 1
                                 
-                            # Verifica se o jogo acabou
                             resultado = acabou(tabuleiro, turno, lances_sem_captura)
                             if resultado is not None:
                                 print(f"END GAME! Winner: {resultado}")
-                                # (Aqui você pode desenhar o vencedor na tela)
-                                rodando = False # Por enquanto, só fecha o jogo
-                            
-                            # Troca o turno
+                                rodando = False 
+                        
                             turno = troca_turno(turno)
                             
                         else:
                             print("Invalid move. Please try again.")
                     
                     except ValueError as erro:
-                        # Isso pega os erros que sua função joga() levanta
                         print(f"Erro: {erro}. Please try again.")
                     
-                    # Limpa a seleção para a próxima jogada
                     peca_selecionada = None
                     origem_x, origem_y = -1, -1
 
 
-        # --- 2. Desenhar a Tela ---
-        desenha_tabuleiro(tabuleiro)  # Desenha os quadrados
-        desenha_pecas(tabuleiro)      # Desenha as peças
+        desenha_tabuleiro(tabuleiro)  
+        desenha_pecas(tabuleiro) 
         
-        # (Opcional) Desenha um destaque na peça selecionada
         if peca_selecionada is not None:
             linha, col = peca_selecionada
-            # Desenha um retângulo verde em volta da peça selecionada
             pygame.draw.rect(tela, (0, 255, 0), (col * TAMANHO_QUADRADO, linha * TAMANHO_QUADRADO, TAMANHO_QUADRADO, TAMANHO_QUADRADO), 4)
-
-        # --- 3. Atualizar a Tela ---
+       
         pygame.display.flip() 
         clock.tick(60)
         

@@ -1,13 +1,11 @@
 """
-Esse módulo provê funções para levar a efeito um jogo de damas.
-A interface deve usar essas funções para:
-- Operar sobre o tabuleiro
-- Operar sobre o turno dos jogadores
-- Garantir as condições iniciais do jogo
-- Verificar as condições de término do jogo
-
-add def captura_obrigatoria
-modifica def joga
+This module provides functions to implement a checkers game.
+The interface should use these functions to:
+- Operate on the game board
+- Manage the players' turns
+- Ensure the initial conditions of the game
+- Check the game termination conditions
+-Check the need for capture
 
 """
 
@@ -15,8 +13,8 @@ from constants import *
 
 def constroi_tabuleiro():
     """
-    Constroi um tabuleiro em formato de uma matriz de ordem constantes.TAM_TAB
-    :return: Uma matriz que representa o tabuleiro
+    Build a game board in the form of a matrix of constant order TAM_TAB.
+    :return: A matrix representing the game board
     """
     tab = []
     for i in range(TAM_TAB):
@@ -36,28 +34,32 @@ def constroi_tabuleiro():
     
 def inicia_turno():
     """
-    Escolhe o jogador de peça branca para iniciar a partida
-    :return: JOG1
+    Choose the player with the white pieces to start the game.
+    :return: PLAYER1
     """
     return PECA_BRANCA 
 
 def troca_turno(turno):
     """
-    Troca o turno dos jogadores
-    :param turno: Um string que representa o jogador atual
-    :return: Um string que representa o outro jogador para o qual o turno vai ser trocado
+    Checks if a move is a valid simple move for the piece in question. 
+    :param tab: The current board. 
+    :param origem_x: The row of the piece to be moved. 
+    :param origem_y: The column of the piece to be moved. 
+    :param destino_x: The destination row of the piece. 
+    :param destino_y: The destination column of the piece. 
+    :return: True if the move is valid (1-square diagonal movement), False otherwise.
     """
     return PECA_PRETA if turno == PECA_BRANCA else PECA_BRANCA
 
 def jogada_simples(tab, origem_x, origem_y, destino_x, destino_y):
     """
-    Verifica se uma jogada é um movimento simples válido para a peça em questão.
-    :param tab: O tabuleiro atual.
-    :param origem_x: A linha da peça a ser movida.
-    :param origem_y: A coluna da peça a ser movida.
-    :param destino_x: A linha de destino da peça.
-    :param destino_y: A coluna de destino da peça.
-    :return: True se a jogada for válida (movimento de 1 casa na diagonal), False caso contrário.
+    Checks if a move is a valid simple move for the piece in question. 
+    :param tab: The current board. 
+    :param origem_x: The row of the piece to be moved. 
+    :param origem_y: The column of the piece to be moved. 
+    :param destino_x: The destination row of the piece. 
+    :param destino_y: The destination column of the piece. 
+    :return: True if the move is valid (1-square diagonal movement), False otherwise.
     """
     peca_origem = tab[origem_x][origem_y]
     dist_x = destino_x - origem_x
@@ -87,16 +89,16 @@ def jogada_simples(tab, origem_x, origem_y, destino_x, destino_y):
 
 def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
     """
-    Verifica se uma jogada é uma captura válida.
-    Para peças normais, a captura é um movimento de 2 casas na diagonal.
-    Para damas, a captura é um movimento de longo alcance sobre uma única peça do adversário.
-    :param tab: O tabuleiro atual.
-    :param turno: O jogador da vez.
-    :param origem_x: A linha da peça a ser movida.
-    :param origem_y: A coluna da peça a ser movida.
-    :param destino_x: A linha de destino da peça.
-    :param destino_y: A coluna de destino da peça.
-    :return: True se a jogada for uma captura válida, False caso contrário.
+    Checks if a move is a valid capture. 
+    For normal pieces, a capture is a 2-square diagonal move. 
+    For kings (queens), a capture is a long-range move over a single opponent's piece. 
+    :param tab: The current board. 
+    :param turno: The current player. 
+    :param origem_x: The row of the piece to be moved. 
+    :param origem_y: The column of the piece to be moved. 
+    :param destino_x: The destination row of the piece. 
+    :param destino_y: The destination column of the piece. 
+    :return: True if the move is a valid capture, False otherwise.
     """
     peca_origem = tab[origem_x][origem_y]
     dist_x = destino_x - origem_x
@@ -159,10 +161,10 @@ def jogada_captura(tab, turno, origem_x, origem_y, destino_x, destino_y):
 # Esta função é da sua Versão 2
 def captura_obrigatoria(tab, turno):
     """
-    Verifica se o jogador da vez tem alguma jogada de captura disponível no tabuleiro.
-    :param tab: O tabuleiro atual.
-    :param turno: O jogador da vez (PECA_BRANCA ou PECA_PRETA).
-    :return: True se houver pelo menos uma captura possível, False caso contrário.
+    Checks if the current player has any capture moves available on the board. 
+    :param tab: The current board. 
+    :param turno: The current player (WHITE_PIECE or BLACK_PIECE). 
+    :return: True if there is at least one possible capture, False otherwise.
     """
     for x in range(TAM_TAB):
         for y in range(TAM_TAB):
@@ -191,12 +193,12 @@ def captura_obrigatoria(tab, turno):
 
 def promove_peca(tab, destino_x, destino_y, peca):
     """
-    Verifica se uma peça normal alcançou a última linha do tabuleiro e a promove a dama.
-    :param tab: O tabuleiro atual.
-    :param destino_x: A linha de destino da peça.
-    :param destino_y: A coluna de destino da peça.
-    :param peca: O tipo de peça a ser verificada (normal branca ou preta).
-    :return: Retorna o novo tipo de peça (dama) se houve promoção, caso contrário, retorna a peça original.
+    Checks if a regular piece has reached the last row of the board and promotes it to a queen. 
+    :param tab: The current board. 
+    :param destino_x: The destination row of the piece. 
+    :param destino_y: The destination column of the piece. 
+    :param peca: The type of piece to be checked (white or black regular piece). 
+    :return: Returns the new piece type (queen) if a promotion occurred, otherwise returns the original piece.
     """
     if peca == PECA_BRANCA and destino_x == TAM_TAB - 1: #verifica se a peca branca chegou na ultima linha (linha 8, indice 7)
         tab[destino_x][destino_y] = PECA_BRANCA_DAMA
@@ -209,15 +211,15 @@ def promove_peca(tab, destino_x, destino_y, peca):
 
 def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
     """
-    Realiza uma jogada completa do jogador da vez, validando e executando o movimento.
-    :param tab: O tabuleiro atual.
-    :param turno: O jogador da vez.
-    :param origem_x: A linha da peça a ser movida.
-    :param origem_y: A coluna da peça a ser movida.
-    :param destino_x: A linha de destino da peça.
-    :param destino_y: A coluna de destino da peça.
-    :return: Uma tupla (bool, bool) onde o primeiro valor indica se a jogada foi válida e o segundo se foi uma captura.
-    :raises ValueError: Se a jogada for para fora do tabuleiro, de uma casa vazia, não for a peça do jogador, ou para uma casa de destino ocupada.
+    Performs a complete move for the current player, validating and executing the movement. 
+    :param tab: The current board. 
+    :param turno: The current player. 
+    :param origem_x: The row of the piece to be moved. 
+    :param origem_y: The column of the piece to be moved. 
+    :param destino_x: The destination row of the piece. 
+    :param destino_y: The destination column of the piece. 
+    :return: True if the move was successful, False if the move is invalid. 
+    :raises ValueError: If the move is outside the board, from an empty square, not the player's piece, or to an occupied destination square.
     """
     if not (0 <= origem_x < TAM_TAB and 0 <= origem_y < TAM_TAB and
             0 <= destino_x < TAM_TAB and 0 <= destino_y < TAM_TAB):
@@ -256,17 +258,11 @@ def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
 
         return True, True # Retorna True para jogada válida e True para captura
 
-    # =================================================================
-    # ***** BLOCO ADICIONADO (DA SUA VERSÃO 2) *****
-    # =================================================================
     # 2. Se a jogada não foi uma captura, verifica se havia uma captura obrigatória no tabuleiro.
     if captura_obrigatoria(tab, turno):
         # Se houver captura obrigatória e a jogada não foi uma, a jogada é inválida.
         # Retorna o formato da Versão 3: (Inválida, Não Foi Captura)
         return False, False
-    # =================================================================
-    # ***** FIM DO BLOCO ADICIONADO *****
-    # =================================================================
 
     # 3. Se não houver captura obrigatória, tenta validar a jogada como um movimento simples.
     if jogada_simples(tab, origem_x, origem_y, destino_x, destino_y):
@@ -283,10 +279,10 @@ def joga(tab, turno, origem_x, origem_y, destino_x, destino_y):
 
 def verifica_vitoria(tab, turno):
     """
-    Verifica se o jogador atual venceu o jogo, checando se não há mais peças do adversário no tabuleiro.
-    :param tab: O tabuleiro atual.
-    :param jogador: O jogador que está sendo verificado.
-    :return: True se o jogador venceu, False caso contrário.
+    Checks if the current player has won the game by checking if there are no more of the opponent's pieces on the board. 
+    :param tab: The current board. 
+    :param jogador: The player being checked. 
+    :return: True if the player has won, False otherwise.
     """
     adversario = PECA_PRETA if turno == PECA_BRANCA else PECA_BRANCA
     adversario_dama = PECA_PRETA_DAMA if adversario == PECA_PRETA else PECA_BRANCA_DAMA
@@ -301,11 +297,11 @@ def verifica_vitoria(tab, turno):
 
 def acabou(tab, turno, lances_sem_captura):
     """
-    Determina se o jogo chegou ao fim por vitória ou por empate.
-    :param tab: O tabuleiro atual.
-    :param turno: O jogador da vez.
-    :param lances_sem_captura: O número de lances consecutivos sem capturas ou promoções.
-    :return: O valor do jogador que venceu (PECA_BRANCA ou PECA_PRETA), EMPATE, ou None se o jogo continua.
+    Determines if the game has ended due to a win or a draw. 
+    :param tab: The current board. 
+    :param turno: The current player. 
+    :param lances_sem_captura: The number of consecutive moves without captures or promotions. 
+    :return: The value of the winning player (WHITE_PIECE or BLACK_PIECE), DRAW, or None if the game continues.
     """
     if verifica_vitoria(tab, turno):
         return turno

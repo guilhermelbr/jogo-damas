@@ -32,13 +32,13 @@ This is the main and most complete version of the project, located in the `(2.0)
     ```
 3.  **Activate the virtual environment**:
     * On Windows (PowerShell):
-        ```powershell
-        .\.venv\Scripts\Activate.ps1
-        ```
+    ```powershell
+    .\.venv\Scripts\Activate.ps1
+    ```
     * On macOS/Linux:
-        ```bash
-        source .venv/bin/activate
-        ```
+    ```bash
+    source .venv/bin/activate
+    ```
 4.  **Install the required dependencies** (packages):
     ```bash
     pip install -r requirements.txt
@@ -74,11 +74,15 @@ This version adds the mandatory capture rule, one of the main mechanics of Check
 
 ### 3. `(1.3)-capture+draw`
 This is the final version of the terminal logic, which adds the draw rule.
-* The mandatory capture rule from Version 2 is maintained.
+* The mandatory capture rule from Version 1.2 is maintained.
 * The game is declared a "Draw" if 40 consecutive moves occur without any capture.
 
 **To run these terminal versions:** After Step 4 (installing dependencies), navigate to the desired folder (e.g., `cd "(1.3)-capture+draw"`) and run `python ui.py`.
 
+---
+### Note on language
+* All the code logic was written in "<strong>Portuguese(BR)</strong>". 
+* However, "<strong>all the code includes comments in English explaining and instructing what each part does</strong>".
 ---
 ### Note on Repository Files
 

@@ -1,5 +1,5 @@
 """
-Módulo que contém as constantes usadas no jogo de damas
+Module containing the constants used in the checkers game.
 """
 
 TAM_TAB = 8 

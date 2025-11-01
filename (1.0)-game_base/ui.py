@@ -1,5 +1,5 @@
 """
-Módulo que faz a interface com o usuário
+Module that provides the user interface.
 """
 from checkers_game import *
 from constants import *
@@ -7,8 +7,8 @@ from termcolor import colored
 
 def imprime_tabuleiro(tab):
     """
-    Imprime um tabuleiro com cores de fundo para diferenciar as casas.
-    :param tab: O tabuleiro a ser impresso.
+    Prints a board with background colors to differentiate the squares. 
+    :param tab: The board to be printed.
     """
     print()
     print("   ", end="")
@@ -42,20 +42,20 @@ def imprime_tabuleiro(tab):
 
 def jogada_formato_valido(j):
     """
-    Verifica se uma jogada de damas tem um formato 'xyzw', onde
-    'xy' é a coordenada de origem e 'zw' é a coordenada de destino.
-    :param j: Um string que representa a jogada.
-    :return: True se o formato for válido, False caso contrário.
+    Receives a checkers move from standard input. 
+    :param t: The player's turn (WHITE_PIECE or BLACK_PIECE). 
+    :param tab: The board, used to print it if the move is invalid. 
+    :return: The origin and destination coordinates (origin_x, origin_y, destination_x, destination_y).
     """
     return j.isnumeric() and len(j) == 4
 
 
 def recebe_jogada(t, tab):
     """
-    Recebe uma jogada de damas da entrada padrão.
-    :param t: O turno do jogador (PECA_BRANCA ou PECA_PRETA).
-    :param tab: O tabuleiro para que seja feita a impressão dele se a jogada for inválida.
-    :return: As coordenadas de origem e destino (origem_x, origem_y, destino_x, destino_y).
+    Receives a checkers move from standard input. 
+    :param t: The player's turn (WHITE_PIECE or BLACK_PIECE). 
+    :param tab: The board, used to print it if the move is invalid. 
+    :return: The origin and destination coordinates (origin_x, origin_y, destination_x, destination_y).
     """
     while True:
         print()
@@ -78,7 +78,7 @@ def recebe_jogada(t, tab):
 
 def main():
     """
-    Função principal que gerencia o fluxo do jogo.
+    The main function that manages the game flow.
     """
     tabuleiro = constroi_tabuleiro()
     turno = inicia_turno()
