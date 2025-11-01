@@ -75,11 +75,16 @@ This is the final version of the terminal logic, which adds the draw rule.
 
 ### Special Views: Kings
 
-<p align="center">
-  <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="250px"/>
-  &nbsp;&nbsp;
-  <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="250px"/>
-</p>
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="border: none; background: none;">
+  <tr>
+    <td align="center" style="padding: 10px; border: none; background: none;">
+      <img src="assets/GUI_kings.png" alt="GUI version with promoted Kings" height="250px"/>
+    </td>
+    <td align="center" style="padding: 10px; border: none; background: none;">
+      <img src="assets/terminal_kings.png" alt="Terminal version with promoted Kings" height="250px"/>
+    </td>
+  </tr>
+</table>
 
 ---
 
