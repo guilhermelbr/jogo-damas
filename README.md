@@ -3,9 +3,11 @@
 This repository contains the final version of a Checkers game developed in Python, using the Pygame library to create a complete and interactive graphical user interface (GUI).
 The project also documents the development evolution, including the previous terminal-based versions, which can be found in the other (1.x) folders.
 
-<img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="assets/GUI_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
+<p>
+  <img src="assets/GUI_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/GUI_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
+</p>
 
 ## Final Version (2.0) - Graphical Interface (GUI)
 
@@ -30,13 +32,13 @@ This is the main and most complete version of the project, located in the `(2.0)
     ```
 3.  **Activate the virtual environment**:
     * On Windows (PowerShell):
-    ```powershell
-    .\.venv\Scripts\Activate.ps1
-    ```
+        ```powershell
+        .\.venv\Scripts\Activate.ps1
+        ```
     * On macOS/Linux:
-    ```bash
-    source .venv/bin/activate
-    ```
+        ```bash
+        source .venv/bin/activate
+        ```
 4.  **Install the required dependencies** (packages):
     ```bash
     pip install -r requirements.txt
@@ -53,9 +55,11 @@ This is the main and most complete version of the project, located in the `(2.0)
 
 This repository also contains the evolution of the game's logic. "<strong>Each (1.x) folder represents an independent and executable mini-project (via terminal)</strong>", showing the progression of the rules:
 
-<img src="assets/terminal_board.png" alt="Screenshot of the Pygame GUI version" width="300px"/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="assets/terminal_kings.png" alt="Screenshot of the Pygame GUI version with Kings" width="300px"/>
+<p>
+  <img src="assets/terminal_board.png" alt="Screenshot of the terminal version" width="300px"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/terminal_kings.png" alt="Screenshot of the terminal version with Kings" width="300px"/>
+</p>
 
 ### 1. `(1.0)-game_base`
 This is the "neutral" and initial version of the game. It contains:
@@ -76,8 +80,7 @@ This is the final version of the terminal logic, which adds the draw rule.
 **To run these terminal versions:** After Step 4 (installing dependencies), navigate to the desired folder (e.g., `cd "(1.3)-capture+draw"`) and run `python ui.py`.
 
 ---
-
 ### Note on Repository Files
 
 * `requirements.txt`: Lists the Python packages (pygame, termcolor) required to run all projects.
-* `.gitignore`: A Git configuration file that instructs it to ignore local files and folders (like `.venv` and `__pycache__`), keeping the repository clean and functional for everyone who downloads it.git add .
+* `.gitignore`: A Git configuration file that instructs it to ignore local files and folders (like `.venv` and `__pycache__`), keeping the repository clean and functional for everyone who downloads it.
